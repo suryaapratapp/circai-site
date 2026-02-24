@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  background:
+    radial-gradient(80rem 40rem at 8% -10%, rgba(16, 185, 129, 0.12), transparent 46%),
+    radial-gradient(72rem 36rem at 90% -6%, rgba(30, 41, 59, 0.62), transparent 45%),
+    radial-gradient(70rem 40rem at 50% 120%, rgba(10, 16, 26, 0.8), transparent 55%),
+    linear-gradient(180deg, #071019 0%, #0a131c 42%, #0c1622 100%);
+  color: #e6edf5;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 16% 30%, rgba(16, 185, 129, 0.08), transparent 25%),
+    radial-gradient(circle at 84% 72%, rgba(134, 239, 172, 0.06), transparent 28%),
+    repeating-linear-gradient(112deg, rgba(148, 163, 184, 0.03) 0, rgba(148, 163, 184, 0.03) 1px, transparent 1px, transparent 48px);
+  opacity: 0.38;
+}
+
+::selection {
+  background: rgba(16, 185, 129, 0.35);
+  color: #f8fafc;
+}
+
+@layer components {
+  .card-surface {
+    @apply rounded-2xl border border-white/10 bg-slate-900/65 shadow-[0_10px_32px_rgba(2,6,23,0.28)] transition duration-200;
+  }
+
+  .card-surface:hover {
+    @apply border-emerald-300/30 shadow-[0_12px_34px_rgba(2,6,23,0.34)] -translate-y-px;
+  }
+
+  .card-glass {
+    @apply rounded-2xl border border-white/[0.14] bg-white/[0.08] shadow-[0_14px_36px_rgba(2,6,23,0.34)] backdrop-blur-lg transition duration-200;
+  }
+
+  .card-glass:hover {
+    @apply border-emerald-300/34 shadow-[0_16px_40px_rgba(2,6,23,0.4)];
+  }
+
+  .glass-card {
+    @apply card-glass;
+  }
+
+  .glass-panel {
+    @apply card-surface rounded-3xl;
+  }
+
+  .glass-panel-strong {
+    @apply rounded-3xl border border-emerald-200/15 bg-slate-900/[0.76] shadow-[0_18px_46px_rgba(2,6,23,0.45)];
+  }
+
+  .soft-divider {
+    @apply relative;
+  }
+
+  .soft-divider::before {
+    content: '';
+    @apply absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent;
+  }
+
+  .subtle-chip {
+    @apply rounded-full border border-emerald-200/20 bg-emerald-400/10 px-3 py-1 text-xs font-medium tracking-wide text-emerald-200;
+  }
+
+  .muted-copy {
+    @apply text-slate-300;
+  }
+}

@@ -1,0 +1,12 @@
+<svg width="960" height="720" viewBox="0 0 960 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="720" fill="#F1F5F9"/>
+  <rect x="80" y="80" width="800" height="560" rx="28" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+  <circle cx="200" cy="180" r="38" fill="#D1FAE5"/>
+  <circle cx="760" cy="540" r="32" fill="#E2E8F0"/>
+  <path d="M200 180L420 320L760 540" stroke="#64748B" stroke-width="3" stroke-dasharray="8 10"/>
+  <rect x="220" y="300" width="220" height="120" rx="18" fill="#F8FAFC" stroke="#94A3B8"/>
+  <rect x="500" y="220" width="240" height="160" rx="18" fill="#F8FAFC" stroke="#94A3B8"/>
+  <rect x="500" y="420" width="160" height="90" rx="14" fill="#ECFDF5" stroke="#86EFAC"/>
+  <text x="120" y="620" fill="#334155" font-family="Arial, sans-serif" font-size="28" font-weight="700">CIRCAI Product Illustration Placeholder</text>
+  <text x="120" y="654" fill="#64748B" font-family="Arial, sans-serif" font-size="20">Replace with generated image</text>
+</svg>
