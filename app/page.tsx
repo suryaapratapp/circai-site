@@ -27,9 +27,9 @@ export default function HomePage() {
               <span className="absolute -left-4 top-2 hidden h-20 w-px bg-emerald-300/45 sm:block" />
               <p className="subtle-chip mb-3 inline-flex">Operationalising the Circular Economy</p>
               <h1 className="max-w-[44rem] text-4xl font-semibold leading-[1.08] tracking-tight text-slate-100 md:text-[2.45rem]">
-                Intelligent software for tracking
+                Intelligent software for tracking  
                 <br className="hidden md:block" />
-                <span className="md:whitespace-nowrap">products across their entire lifecycle.</span>
+                <span className="md:whitespace-nowrap"> products across their entire lifecycle.</span>
               </h1>
               <p className="mt-6 max-w-3xl text-lg leading-relaxed text-slate-300">
                 CIRCAI provides the auditability, traceability, and intelligence needed to transition from
