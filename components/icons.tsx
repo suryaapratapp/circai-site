@@ -10,3 +10,16 @@ export function LinkedinIcon(props: SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+
+export function EmailIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
+      <path
+        d="M3.75 6.75h16.5a.75.75 0 0 1 .75.75v9a.75.75 0 0 1-.75.75H3.75a.75.75 0 0 1-.75-.75v-9a.75.75 0 0 1 .75-.75Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
+      <path d="m4.5 8 7.042 5.179a.75.75 0 0 0 .916 0L19.5 8" stroke="currentColor" strokeWidth="1.5" />
+    </svg>
+  );
+}

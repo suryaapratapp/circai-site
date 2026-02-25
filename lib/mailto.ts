@@ -18,10 +18,7 @@ Suggested times (with timezone):
 Best regards,`;
 
 export const buildDemoMailtoHref = (): string => {
-  const params = new URLSearchParams({
-    subject: DEMO_SUBJECT,
-    body: DEMO_BODY,
-  });
-
-  return `mailto:${DEMO_RECIPIENTS.join(',')}?${params.toString()}`;
+  const subject = encodeURIComponent(DEMO_SUBJECT);
+  const body = encodeURIComponent(DEMO_BODY);
+  return `mailto:${DEMO_RECIPIENTS.join(',')}?subject=${subject}&body=${body}`;
 };

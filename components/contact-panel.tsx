@@ -8,6 +8,9 @@ type FormState = {
   message: string;
 };
 
+// Notification recipients are configured in the Formspree dashboard for this form.
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xaqdapzq';
+
 const DEFAULT_VALUES = {
   name: '',
   email: '',
@@ -24,10 +27,11 @@ export function ContactPanel() {
     setFormState({ status: 'loading', message: 'Sending your request...' });
 
     try {
-      const response = await fetch('/api/demo', {
+      const formData = new FormData(event.currentTarget);
+      const response = await fetch(FORMSPREE_ENDPOINT, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(values),
+        headers: { Accept: 'application/json' },
+        body: formData,
       });
 
       if (!response.ok) {
@@ -37,12 +41,12 @@ export function ContactPanel() {
       setValues(DEFAULT_VALUES);
       setFormState({
         status: 'success',
-        message: 'Request received. Our team will contact you shortly.',
+        message: 'Thanks — we’ll get back to you shortly.',
       });
     } catch {
       setFormState({
         status: 'error',
-        message: 'Submission failed. Please retry or use the Request a demo email button.',
+        message: 'Submission failed. Please try again shortly.',
       });
     }
   };
@@ -61,6 +65,8 @@ export function ContactPanel() {
       <section className="card-surface rounded-3xl p-6 sm:p-8">
         <h3 className="text-lg font-semibold text-slate-100">Send details directly</h3>
         <form onSubmit={onSubmit} className="mt-5 space-y-4">
+          <input type="hidden" name="_subject" value="New CIRCAI contact submission" />
+          <input type="text" name="_gotcha" className="hidden" tabIndex={-1} autoComplete="off" />
           <div>
             <label htmlFor="name" className="mb-1 block text-sm font-medium text-slate-300">
               Name
