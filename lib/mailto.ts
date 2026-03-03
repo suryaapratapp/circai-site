@@ -1,10 +1,10 @@
 const DEMO_RECIPIENTS = ['info@circai.co.uk'];
 
-const DEMO_SUBJECT = 'CIRCAI – Demo Request';
+const DEMO_SUBJECT = 'CIRCAI – Enquiry';
 
 const DEMO_BODY = `Hello CIRCAI Team,
 
-I’d like to request a demo of the CIRCAI products & services.
+I’d like to enquire about the CIRCAI products & services.
 
 Organisation:
 Industry:

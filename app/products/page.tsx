@@ -126,7 +126,7 @@ export default function ProductsPage() {
       <div className="relative z-10">
         <SectionShell
           title="Our Products"
-          subtitle="CIRCAI is a modular software suite for product lifecycle tracking and circular operations."
+          subtitle="CIRCAI provides a modular software suite for product lifecycle tracking and circular operations."
           className="[&>div>header]:mb-5"
         >
           <div className="grid gap-5 lg:grid-cols-[1.2fr_1fr] lg:items-center">

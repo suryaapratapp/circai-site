@@ -1,19 +1,36 @@
-import { ArrowRight, Globe2, ShieldCheck } from 'lucide-react';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 import { AIAgentsSection } from '@/components/ai-agents-section';
-import { DemoCtaButton } from '@/components/demo-cta-button';
+import { PhysicalAssetsVisibilitySection } from '@/components/home/physical-assets-visibility-section';
 import { LazyParticleBackground } from '@/components/lazy-particle-background';
 import { SectionShell } from '@/components/section-shell';
 import { SystemFlow } from '@/components/system-flow';
 
+const ENQUIRE_SUBJECT = 'CIRCAI – Enquiry';
+
+const ENQUIRE_BODY = `Hello CIRCAI Team,
+
+I would like to enquire about CIRCAI's lifecycle intelligence platform.
+
+Organisation:
+Industry:
+Assets or products:
+Sites / locations:
+Deployment preference (cloud / private / hybrid):
+
+Best regards,`;
+
+const ENQUIRE_HREF = `mailto:info@circai.co.uk?subject=${encodeURIComponent(ENQUIRE_SUBJECT)}&body=${encodeURIComponent(ENQUIRE_BODY)}`;
+
 const INDUSTRIES = [
   'Healthcare',
-  'Advanced Manufacturing',
-  'Circular Textiles',
-  'Enterprise Logistics',
-  'Regulated Electronics',
-  'Chemical Tracking',
-  'Automotive Parts',
+  'Manufacturing',
+  'Construction',
+  'Logistics',
   'Luxury Assets',
+  'Chemical Tracking',
+  'Retail',
+  'Circular Economy Operators',
 ] as const;
 
 export default function HomePage() {
@@ -27,7 +44,7 @@ export default function HomePage() {
               <span className="absolute -left-4 top-2 hidden h-20 w-px bg-emerald-300/45 sm:block" />
               <p className="subtle-chip mb-3 inline-flex">Operationalising the Circular Economy</p>
               <h1 className="max-w-[44rem] text-4xl font-semibold leading-[1.08] tracking-tight text-slate-100 md:text-[2.45rem]">
-                Intelligent software for tracking  
+                Intelligent software for tracking
                 <br className="hidden md:block" />
                 <span className="md:whitespace-nowrap"> products across their entire lifecycle.</span>
               </h1>
@@ -35,9 +52,22 @@ export default function HomePage() {
                 CIRCAI provides the auditability, traceability, and intelligence needed to transition from
                 linear waste to circular value. Build resilient, efficient, and compliant operations.
               </p>
-              <DemoCtaButton className="mt-8 group">
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </DemoCtaButton>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a
+                  href={ENQUIRE_HREF}
+                  className="group inline-flex items-center justify-center gap-2 rounded-xl border border-emerald-300/35 bg-emerald-500/15 px-6 py-3 text-sm font-semibold text-emerald-100 backdrop-blur-sm transition-all duration-200 hover:border-emerald-200/55 hover:bg-emerald-400/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050a0f]"
+                  aria-label="Enquire Now"
+                >
+                  <span>Enquire Now</span>
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </a>
+                <Link
+                  href="/products"
+                  className="inline-flex items-center justify-center rounded-xl border border-white/15 bg-black/20 px-6 py-3 text-sm font-semibold text-slate-100 transition-colors hover:border-emerald-300/35 hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050a0f]"
+                >
+                  Explore our Products
+                </Link>
+              </div>
             </div>
           </div>
 
@@ -87,10 +117,17 @@ export default function HomePage() {
           <h2 className="text-3xl font-semibold tracking-tight text-slate-100 sm:text-4xl">
             Ready for the Digital Product Passport (DPP)?
           </h2>
-          <p className="mt-4 max-w-4xl text-base leading-relaxed text-slate-300">
-            CIRCAI&apos;s architecture is built specifically to handle upcoming EU and global regulations regarding
-            product traceability and circularity reporting. Don&apos;t just comply, lead.
-          </p>
+          <div className="mt-4 max-w-4xl space-y-3 text-base leading-relaxed text-slate-300">
+            <p>
+              CIRCAI is designed to generate product-level lifecycle evidence from the moment an item enters service
+              to end-of-life — captured through structured events and persistent identifiers.
+            </p>
+            <p>
+              Be ready to provide verifiable data for audits, sustainability disclosures, and emerging DPP
+              requirements, without rebuilding your operations later.
+            </p>
+            <p>Move beyond checkbox compliance and create a competitive advantage through trusted traceability.</p>
+          </div>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             <div className="card-surface px-4 py-4 text-center">
               <p className="text-2xl font-semibold text-emerald-200">100%</p>
@@ -107,56 +144,24 @@ export default function HomePage() {
       <SectionShell id="industries" title="Industries Served">
         <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {INDUSTRIES.map((industry) => (
-            <li key={industry} className="card-surface px-4 py-3 text-sm font-medium text-slate-200">
-              {industry}
+            <li key={industry} className="card-surface group relative overflow-hidden px-4 py-3 text-sm font-medium text-slate-200">
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(45,212,191,0.16),transparent_38%)] opacity-55 motion-safe:animate-[pulse_8s_ease-in-out_infinite] motion-reduce:animate-none"
+              />
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-emerald-300/35 to-transparent"
+              />
+              <span className="relative">{industry}</span>
             </li>
           ))}
         </ul>
-      </SectionShell>
-
-      <SectionShell title="Enterprise-Grade Security and Data Sovereignty">
-        <div className="grid items-start gap-6 lg:grid-cols-[2fr_1fr]">
-          <ul className="space-y-4">
-            <li className="card-surface p-5">
-              <h3 className="text-base font-semibold text-slate-100">Full Data Ownership</h3>
-              <p className="mt-2 text-sm text-slate-300">
-                Your operational data is yours. We provide the infrastructure; you control the keys.
-              </p>
-            </li>
-            <li className="card-surface p-5">
-              <h3 className="text-base font-semibold text-slate-100">Immutable Audit Trails</h3>
-              <p className="mt-2 text-sm text-slate-300">
-                Every scan and interaction is logged in an unalterable history for regulatory compliance.
-              </p>
-            </li>
-            <li className="card-surface p-5">
-              <h3 className="text-base font-semibold text-slate-100">Global Scalability</h3>
-              <p className="mt-2 text-sm text-slate-300">
-                Architecture designed to support millions of concurrent assets across multi-region deployments.
-              </p>
-            </li>
-          </ul>
-          <article className="card-surface p-6 text-center">
-            <Globe2 className="mx-auto h-10 w-10 text-emerald-200" />
-            <p className="mt-3 text-sm font-semibold uppercase tracking-widest text-emerald-200">
-              Global GDPR Compliant Architecture
-            </p>
-            <ShieldCheck className="mx-auto mt-4 h-6 w-6 text-emerald-300" />
-          </article>
-        </div>
+        <p className="mt-5 text-sm text-slate-300 sm:text-base">Where compliance, visibility, and performance intersect.</p>
       </SectionShell>
 
       <SectionShell>
-        <section className="card-surface border border-emerald-300/20 bg-emerald-500/14 px-6 py-10 sm:px-10 sm:py-12">
-          <h2 className="text-3xl font-semibold tracking-tight text-slate-100 sm:text-4xl">
-            Ready to evolve your product lifecycle?
-          </h2>
-          <p className="mt-4 max-w-3xl text-base text-slate-200">
-            Join forward-thinking organisations building a transparent, efficient, and circular future with
-            CIRCAI.
-          </p>
-          <DemoCtaButton className="mt-8" />
-        </section>
+        <PhysicalAssetsVisibilitySection />
       </SectionShell>
     </>
   );

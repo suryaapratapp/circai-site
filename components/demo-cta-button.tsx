@@ -7,7 +7,7 @@ type DemoCtaButtonProps = {
   label?: string;
 };
 
-export function DemoCtaButton({ className = '', children, label = 'Request a demo' }: DemoCtaButtonProps) {
+export function DemoCtaButton({ className = '', children, label = 'Enquire Now' }: DemoCtaButtonProps) {
   return (
     <a
       href={buildDemoMailtoHref()}

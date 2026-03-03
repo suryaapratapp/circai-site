@@ -54,17 +54,39 @@ export function SystemFlow() {
         {STEPS.map((step, index) => {
           const Icon = step.icon;
           const isLast = index === STEPS.length - 1;
+          const delay = `${index * 0.75}s`;
+          const connectorDelay = `${index * 0.75 + 0.35}s`;
 
           return (
             <li key={step.label} className="contents">
-              <article className="card-surface col-span-1 p-4">
-                <Icon className="h-5 w-5 text-emerald-300" />
+              <article className="card-surface relative col-span-1 overflow-hidden p-4">
+                <span
+                  aria-hidden="true"
+                  style={{ animationDelay: delay }}
+                  className="pointer-events-none absolute inset-0 rounded-xl bg-emerald-300/10 opacity-0 motion-safe:animate-[pulse_5s_ease-in-out_infinite] motion-reduce:animate-none"
+                />
+                <Icon
+                  className="h-5 w-5 text-emerald-300 motion-safe:animate-[pulse_5s_ease-in-out_infinite] motion-reduce:animate-none"
+                  style={{ animationDelay: delay }}
+                />
                 <h3 className="mt-3 text-sm font-semibold text-slate-100">{step.label}</h3>
                 <p className="mt-2 text-xs leading-relaxed text-slate-300">{step.subtitle}</p>
               </article>
               {!isLast ? (
                 <div className="col-span-1 flex items-center justify-center px-1">
-                  <ArrowRight className="h-7 w-7 text-slate-400" strokeWidth={2.4} aria-hidden="true" />
+                  <div className="flex items-center gap-1">
+                    <span
+                      aria-hidden="true"
+                      style={{ animationDelay: connectorDelay }}
+                      className="h-px w-5 bg-slate-500/70 motion-safe:animate-[pulse_5s_ease-in-out_infinite] motion-reduce:animate-none"
+                    />
+                    <ArrowRight
+                      className="h-7 w-7 text-slate-400 motion-safe:animate-[pulse_5s_ease-in-out_infinite] motion-reduce:animate-none"
+                      style={{ animationDelay: connectorDelay }}
+                      strokeWidth={2.4}
+                      aria-hidden="true"
+                    />
+                  </div>
                 </div>
               ) : null}
             </li>
@@ -76,19 +98,34 @@ export function SystemFlow() {
         {STEPS.map((step, index) => {
           const Icon = step.icon;
           const isLast = index === STEPS.length - 1;
+          const delay = `${index * 0.75}s`;
+          const connectorDelay = `${index * 0.75 + 0.35}s`;
 
           return (
             <li key={step.label}>
-              <article className="card-surface p-4">
+              <article className="card-surface relative overflow-hidden p-4">
+                <span
+                  aria-hidden="true"
+                  style={{ animationDelay: delay }}
+                  className="pointer-events-none absolute inset-0 rounded-xl bg-emerald-300/10 opacity-0 motion-safe:animate-[pulse_5s_ease-in-out_infinite] motion-reduce:animate-none"
+                />
                 <div className="flex items-center gap-2">
-                  <Icon className="h-5 w-5 text-emerald-300" />
+                  <Icon
+                    className="h-5 w-5 text-emerald-300 motion-safe:animate-[pulse_5s_ease-in-out_infinite] motion-reduce:animate-none"
+                    style={{ animationDelay: delay }}
+                  />
                   <h3 className="text-sm font-semibold text-slate-100">{step.label}</h3>
                 </div>
                 <p className="mt-2 text-xs leading-relaxed text-slate-300">{step.subtitle}</p>
               </article>
               {!isLast ? (
                 <div className="my-3 flex justify-center">
-                  <ArrowDown className="h-6 w-6 text-slate-400" strokeWidth={2.4} aria-hidden="true" />
+                  <ArrowDown
+                    className="h-6 w-6 text-slate-400 motion-safe:animate-[pulse_5s_ease-in-out_infinite] motion-reduce:animate-none"
+                    style={{ animationDelay: connectorDelay }}
+                    strokeWidth={2.4}
+                    aria-hidden="true"
+                  />
                 </div>
               ) : null}
             </li>
